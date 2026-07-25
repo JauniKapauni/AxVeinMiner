@@ -23,7 +23,7 @@ public class BlockBreakListener implements Listener {
         ItemStack tool = e.getPlayer().getInventory().getItemInMainHand();
         if(!tool.getType().toString().endsWith("_PICKAXE")) return;
         if(!reference.MATERIALS.contains(b.getType())) return;
-        Set<Block> vein = new HashSet<>();
+        List<Block> vein = new ArrayList<>();
         Queue<Block> queue = new LinkedList<>();
         Set<String> visited = new HashSet<>();
         queue.add(b);
@@ -36,10 +36,7 @@ public class BlockBreakListener implements Listener {
                 Block nb = current.getRelative(off[0], off[1], off[2]);
                 String key = nb.getX() + "," + nb.getY() + "," + nb.getZ();
                 if(!visited.contains(key) &&
-                        nb.getType() == b.getType() &&
-                        Math.abs(b.getX() - nb.getX()) <= reference.MAX_RADIUS &&
-                        Math.abs(b.getY() - nb.getY()) <= reference.MAX_RADIUS &&
-                Math.abs(b.getZ() - nb.getZ()) <= reference.MAX_RADIUS){
+                        nb.getType() == b.getType()){
                     visited.add(key);
                     queue.add(nb);
                 }
