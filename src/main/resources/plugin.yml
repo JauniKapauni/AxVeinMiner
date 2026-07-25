@@ -1,0 +1,11 @@
+name: AxVeinMiner
+description: $description
+prefix: AxVeinMiner
+version: '${version}'
+
+main: de.jaunikapauni.axveinminer.AxVeinMiner
+api-version: '26.1.2'
+load: POSTWORLD
+
+authors: [ JauniKapauni ]
+website: https://github.com/JauniKapauni
