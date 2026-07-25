@@ -44,11 +44,16 @@ public class BlockBreakListener implements Listener {
             }
         }
         e.setDropItems(false);
+         b.breakNaturally(tool);
         List<Block> blocks = new ArrayList<>(vein);
-        for(int i = 0; i < blocks.size(); i++){
+        for(int i = 1; i < blocks.size(); i++){
             Block block = blocks.get(i);
             Bukkit.getScheduler().runTaskLater(reference, () -> {
-                block.breakNaturally(tool);
+                BlockBreakEvent event = new BlockBreakEvent(block, e.getPlayer());
+                Bukkit.getPluginManager().callEvent(event);
+                if(!event.isCancelled()){
+                    block.breakNaturally(tool);
+                }
             }, (long) i * 20);
         }
     }
