@@ -45,6 +45,7 @@ public class BlockBreakListener implements Listener {
         }
         e.setDropItems(false);
          b.breakNaturally(tool);
+         tool.damage(1, e.getPlayer());
         List<Block> blocks = new ArrayList<>(vein);
         for(int i = 1; i < blocks.size(); i++){
             Block block = blocks.get(i);
@@ -53,6 +54,7 @@ public class BlockBreakListener implements Listener {
                 Bukkit.getPluginManager().callEvent(event);
                 if(!event.isCancelled()){
                     block.breakNaturally(tool);
+                    tool.damage(1, e.getPlayer());
                 }
             }, (long) i * 20);
         }
