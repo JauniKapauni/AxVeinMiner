@@ -1,0 +1,9 @@
+max-radius: 3
+max-blocks: 32
+materials:
+  - COAL_ORE
+  - DEEPSLATE_IRON_ORE
+  - IRON_ORE
+  - DEEPSLATE_IRON_ORE
+  - COPPER_ORE
+  - DEEPSLATE_COPPER_ORE
