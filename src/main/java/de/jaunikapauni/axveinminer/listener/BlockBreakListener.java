@@ -22,7 +22,7 @@ public class BlockBreakListener implements Listener {
         Block b = e.getBlock();
         ItemStack tool = e.getPlayer().getInventory().getItemInMainHand();
         if(!e.getPlayer().isSneaking()) return;
-        if(!tool.getType().toString().endsWith("_PICKAXE")) return;
+        if(!tool.getType().toString().endsWith("AXE")) return;
         if(!reference.MATERIALS.contains(b.getType())) return;
         List<Block> vein = new ArrayList<>();
         Queue<Block> queue = new LinkedList<>();
